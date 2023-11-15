@@ -269,8 +269,8 @@ section {
 }
 
 .header .logo img {
-  margin-top: 20px;
-  margin-left: 40px;
+  margin-top: 25px;
+  margin-left: -10px;
   max-height: 130px;
   margin-right: 6px;
 }
@@ -540,7 +540,7 @@ section {
     line-height: 0;
     transition: 0.5s;
     z-index: 9999;
-    margin: 0 10px 0 20px;
+    margin: 0 0px 0 30px;
   }
 
   .mobile-nav-hide {
@@ -550,8 +550,8 @@ section {
     line-height: 0;
     transition: 0.5s;
     position: fixed;
-    right: 20px;
-    top: 20px;
+    right: 40px;
+    top: 40px;
     z-index: 9999;
   }
 
