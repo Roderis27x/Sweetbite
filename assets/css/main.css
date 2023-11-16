@@ -514,7 +514,7 @@ section {
   .navbar .active,
   .navbar .active:focus {
     color: #000;
-    border-color: var(--color-primary);
+    border-color: #accce4;
   }
 
   .navbar .dropdown ul,
@@ -533,7 +533,7 @@ section {
   }
 
   .mobile-nav-show {
-    color: var(--color-secondary);
+    color: #accce4;
     font-size: 28px;
     cursor: pointer;
     line-height: 0;
@@ -543,7 +543,7 @@ section {
   }
 
   .mobile-nav-hide {
-    color: var(--color-secondary);
+    color: #accce4;
     font-size: 32px;
     cursor: pointer;
     line-height: 0;
