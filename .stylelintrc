@@ -4,6 +4,7 @@
     "indentation": 2,
     "string-quotes": "double",
     "color-hex-case": "lower",
-    "selector-pseudo-element-colon-notation": "single"
+    "selector-pseudo-element-colon-notation": "single",
+    "extends": "stylelint-config-standard"
   }
 }
