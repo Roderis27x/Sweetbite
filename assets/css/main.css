@@ -9,7 +9,6 @@
   --font-primary: "Amatic SC", sans-serif;
   --font-secondary: "Bringa Retro";
 }
-
 /* Colors */
 :root {
   --color-default: #212529;
@@ -796,48 +795,6 @@ section {
   font-size: 24px;
   font-weight: 700;
   color: #accce4;
-}
-
-
-/*--------------------------------------------------------------
-# Gallery Section
---------------------------------------------------------------*/
-.gallery {
-  overflow: hidden;
-}
-
-.gallery .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.gallery .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #d1d1d7;
-  opacity: 1;
-}
-
-.gallery .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #000;
-}
-
-.gallery .swiper-slide-active {
-  text-align: center;
-}
-
-@media (min-width: 992px) {
-  .gallery .swiper-wrapper {
-    padding: 40px 0;
-  }
-
-  .gallery .swiper-slide-active {
-    border: 6px solid #accce4;
-    padding: 4px;
-    background: #accce4;
-    z-index: 1;
-    transform: scale(1.2);
-  }
 }
 
 /*--------------------------------------------------------------
