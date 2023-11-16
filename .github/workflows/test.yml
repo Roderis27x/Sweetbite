@@ -22,7 +22,10 @@ jobs:
           npx htmlhint '**/*.html'
 
       - name: Run CSS tests
-        run: npx stylelint '**/*.css'
+        run: |
+          chmod +x node_modules/.bin/stylelint
+          npx stylelint '**/*.css'
+        
 
   optimize-images:
     runs-on: ubuntu-latest
