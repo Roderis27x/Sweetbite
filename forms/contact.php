@@ -1,41 +1,49 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+// Incluye los archivos de PHPMailer
+require 'PHPMailer-6.8.1/src/Exception.php';
+require 'PHPMailer-6.8.1/src/PHPMailer.php';
+require 'PHPMailer-6.8.1/src/SMTP.php';
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Recuperar datos del formulario
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $subject = $_POST["subject"];
+    $message = $_POST["message"];
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+    // Configurar PHPMailer
+    $mail = new PHPMailer(true);
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+    try {
+        // Configuración del servidor SMTP de Gmail
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = getenv('GMAIL_USERNAME'); // Utiliza la variable de entorno para el correo electrónico
+        $mail->Password = getenv('GMAIL_PASSWORD'); // Utiliza la variable de entorno para la contraseña
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+        // Destinatario y remitente
+        $mail->setFrom($email, $name);
+        $mail->addAddress('correo_destino@example.com'); // Reemplaza con tu dirección de correo de destino
 
-  echo $contact->send();
+        // Contenido del correo
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body = "Nombre: $name <br> Correo Electrónico: $email <br> Mensaje: $message";
+
+        $mail->send();
+
+        echo "success";
+    } catch (Exception $e) {
+        echo "error: " . $mail->ErrorInfo;
+    }
+} else {
+    echo "error";
+}
 ?>
+

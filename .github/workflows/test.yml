@@ -1,0 +1,39 @@
+name: Pruebas y Optimización de Imágenes
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run HTML tests
+        run: npx htmlhint '**/*.html'
+
+      - name: Run CSS tests
+        run: npx stylelint '**/*.css'
+
+  optimize-images:
+    runs-on: ubuntu-latest
+
+    needs: test
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Optimize Images
+        run: npx imagemin 'assets/img/**/*.{jpg,png,gif}' --out-dir=dist
+

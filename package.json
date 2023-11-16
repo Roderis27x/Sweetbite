@@ -1,0 +1,18 @@
+{
+  "name": "sweetbite",
+  "version": "1.0.0",
+  "description": "¡Bienvenido a Sweet Bites! 🍪",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "html-test": "htmlhint",
+    "css-test": "stylelint"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "htmlhint": "^1.1.4",
+    "imagemin-cli": "^7.0.0",
+    "stylelint": "^15.11.0"
+  }
+}
