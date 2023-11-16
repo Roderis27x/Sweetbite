@@ -17,7 +17,9 @@ jobs:
         run: npm install
 
       - name: Run HTML tests
-        run: npx htmlhint '**/*.html'
+        run: |
+          chmod +x node_modules/.bin/htmlhint
+          npx htmlhint '**/*.html'
 
       - name: Run CSS tests
         run: npx stylelint '**/*.css'
