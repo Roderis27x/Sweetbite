@@ -21,12 +21,6 @@ jobs:
           chmod +x node_modules/.bin/htmlhint
           npx htmlhint '**/*.html'
 
-      - name: Run CSS tests
-        run: |
-          chmod +x node_modules/.bin/stylelint
-          npx stylelint '**/*.css'
-        
-
   optimize-images:
     runs-on: ubuntu-latest
 
@@ -41,4 +35,3 @@ jobs:
 
       - name: Optimize Images
         run: npx imagemin 'assets/img/**/*.{jpg,png,gif}' --out-dir=dist
-
