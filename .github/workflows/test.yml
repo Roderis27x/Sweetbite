@@ -33,6 +33,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Grant execute permissions to imagemin
+        run: chmod +x ./node_modules/.bin/imagemin
+
       - name: Optimize Images
         run: npx imagemin 'assets/img/**/*.{jpg,png,gif}' --out-dir=dist
-      
