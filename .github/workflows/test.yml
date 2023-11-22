@@ -34,4 +34,4 @@ jobs:
         run: npm install
 
       - name: Optimize Images
-        run: imagemin 'assets/img/**/*.{jpg,png,gif}' --out-dir=dist
+        run: ./node_modules/.bin/imagemin 'assets/img/**/*.{jpg,png,gif}' --out-dir=dist
