@@ -17,6 +17,7 @@
     "stylelint-config-standard": "^34.0.0"
   },
   "dependencies": {
+    "jpegtran-bin": "^7.0.0",
     "optipng-bin": "^9.0.0"
   }
 }
